@@ -12,15 +12,24 @@ def getSearchTerm():
 
     return term
 
-def search(term):
+def searchTitles(term):
     return w.search(term, SEARCH_TERM_LIMIT)
+
+def searchPages(titles):
+    pages = []
+    for i in titles:
+        pages.append(w.page(i))
+    return pages
 
 def main():
     searchTerm = getSearchTerm()
     print(searchTerm)
 
-    pages = search(searchTerm)
-    print(pages)
+    pageTitles = searchTitles(searchTerm)
+    print(pageTitles)
 
+    pages = searchPages(pageTitles)
+    print(pages)
+    
 
 main()
